@@ -1,0 +1,11 @@
+{
+  "name": "cars24.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "puppeteer": "^18.0.5"
+  }
+}
