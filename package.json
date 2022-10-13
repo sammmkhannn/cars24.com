@@ -5,11 +5,12 @@
   "license": "MIT",
   "type": "commonjs",
   "scripts": {
-    "dev":"nodemon script.js",
-    "start":"node script.js"
+    "dev": "nodemon script.js",
+    "start": "node script.js"
   },
   "dependencies": {
     "fs": "^0.0.1-security",
+    "mongoose": "^6.6.5",
     "puppeteer": "^18.0.5",
     "puppeteer-extra": "^3.3.4",
     "puppeteer-extra-plugin-adblocker": "^2.13.5",

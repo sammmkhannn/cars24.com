@@ -90,7 +90,7 @@ class Scraper{
 }
 
 async function main() {
-    let browser = await puppeteer.launch({headless:true});
+    let browser = await puppeteer.launch({headless:false});
     let page = await browser.newPage();
     const cars24 = new Scraper(browser, page);
     cars24.getCarLinks();
