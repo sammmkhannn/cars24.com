@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "nodemon script.js",
     "start": "node script.js"
   },
   "dependencies": {
+    "cron": "^2.1.0",
     "fs": "^0.0.1-security",
     "mongoose": "^6.6.5",
     "puppeteer": "^18.0.5",
+    "puppeteer-cluster": "^0.23.0",
     "puppeteer-extra": "^3.3.4",
     "puppeteer-extra-plugin-adblocker": "^2.13.5",
     "puppeteer-extra-plugin-stealth": "^2.11.1"

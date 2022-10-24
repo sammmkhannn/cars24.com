@@ -1,5 +1,5 @@
 const fs = require("fs")
-let data = require("./cars1.json")
+let data = require("./ex.json")
 const mongoose = require("mongoose");
 
 
@@ -24,13 +24,22 @@ for (let datum of data) {
 console.log(categorizedData);
 
 //write categorizeData to the json file
-fs.writeFile('filtered.json', JSON.stringify(categorizedData), (err) => {
+fs.writeFile('filtered.json', JSON.stringify(data), (err) => {
     if (!err) {
         console.log('data has been written to the file')
     } else {
         console.log('got an error while writing the data to the file')
     }
 })
+
+fs.writeFile('categorized.json', JSON.stringify(categorizedData), (err) => {
+    if (!err) {
+        console.log('data has been written to the file')
+    } else {
+        console.log('got an error while writing the data to the file')
+    }
+})
+
 
 //create car model
 const carSchema = new mongoose.Schema({
@@ -74,18 +83,18 @@ async function saveData(categorizedData) {
     }
 }
 
-//connect to the database
+// //connect to the database
 // mongoose.connect('mongodb+srv://CarBucksUser:PiE0YS4NCBPhctzI@cluster0.e5lzl.mongodb.net/car-bucks-database?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
-// mongoose.connect('mongodb+srv://admin:1990xe98@cluster0.b86j3.mongodb.net/cars?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
-// let conn = mongoose.connection;
+mongoose.connect('mongodb+srv://admin:1990xe98@cluster0.b86j3.mongodb.net/cars?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+let conn = mongoose.connection;
 
-// //test the connection
-// conn.once('open', () => {
-//     saveData(categorizedData);
-// })
-//     .on('err', (err) => {
-//         console.log('got an error while connecting to mongodb');
-// });
+//test the connection
+conn.once('open', () => {
+    saveData(categorizedData);
+})
+    .on('err', (err) => {
+        console.log('got an error while connecting to mongodb');
+});
 
 
 
